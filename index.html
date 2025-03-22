@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Keys</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #keyDisplay {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #333;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Current Key:</h2>
+    <div id="keyDisplay">Loading...</div>
+
+    <script>
+        const keys = [
+            "VNS8KXUUEQ700HVKU85YOE",
+            "B3ZIV7F0SEM54YPGU4UIX4",
+            "QPPBWJ6ETLC2E4FL3UUN4J",
+            "D1WAWMJYMQDSDNNWH2B933",
+            "ZLGNIXMWEJQCVP9B8IUGF9"
+        ];
+
+        let currentIndex = 0;
+
+        function updateKey() {
+            document.getElementById("keyDisplay").innerText = keys[currentIndex];
+            currentIndex = (currentIndex + 1) % keys.length;
+        }
+
+        updateKey(); // Show the first key immediately
+        setInterval(updateKey, 120000); // Change the key every 2 minutes
+    </script>
+
+</body>
+</html>
